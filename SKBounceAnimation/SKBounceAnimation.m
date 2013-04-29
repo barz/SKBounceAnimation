@@ -248,7 +248,7 @@
 	NSMutableArray *values = [NSMutableArray arrayWithCapacity:numberOfRects];
 	CGRect value;
 	
-	for (NSInteger i = 1; i < numberOfRects; i++) {
+	for (NSUInteger i = 1; i < numberOfRects; i++) {
 		value = CGRectMake(
 					    [[xValues objectAtIndex:i] floatValue],
 					    [[yValues objectAtIndex:i] floatValue],
@@ -267,7 +267,7 @@ static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues) {
 	value = CGPointMake([[xValues objectAtIndex:0] floatValue], [[yValues objectAtIndex:0] floatValue]);
 	CGPathMoveToPoint(path, NULL, value.x, value.y);
 	
-	for (NSInteger i = 1; i < numberOfPoints; i++) {
+	for (NSUInteger i = 1; i < numberOfPoints; i++) {
 		value = CGPointMake([[xValues objectAtIndex:i] floatValue], [[yValues objectAtIndex:i] floatValue]);
 		CGPathAddLineToPoint(path, NULL, value.x, value.y);
 	}
@@ -282,7 +282,7 @@ static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues) {
 	NSMutableArray *values = [NSMutableArray arrayWithCapacity:numberOfTransforms];
 	CATransform3D value;
 	
-	for (NSInteger i = 1; i < numberOfTransforms; i++) {
+	for (NSUInteger i = 1; i < numberOfTransforms; i++) {
 		value = CATransform3DIdentity;
 		value.m11 = [[m11 objectAtIndex:i] floatValue];
 		value.m12 = [[m12 objectAtIndex:i] floatValue];
@@ -316,7 +316,7 @@ static CGPathRef createPathFromXYValues(NSArray *xValues, NSArray *yValues) {
 	NSMutableArray *values = [NSMutableArray arrayWithCapacity:numberOfColors];
 	UIColor *value;
 	
-	for (NSInteger i = 1; i < numberOfColors; i++) {
+	for (NSUInteger i = 1; i < numberOfColors; i++) {
 		value = [UIColor colorWithRed:[[redValues objectAtIndex:i] floatValue]
 						    green:[[greenValues objectAtIndex:i] floatValue]
 							blue:[[blueValues objectAtIndex:i] floatValue]
