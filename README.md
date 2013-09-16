@@ -24,7 +24,7 @@ We set the value of our keypath to the final value, and then perform the animati
 
 ## Math
 
-The math is simple. Check out the [blogpost](http://khanlou.com/2012/01/cakeyframeanimation-make-it-bounce/) and [the informational post](http://khanlou.com/2012/01/dampers-and-their-role-in-physical-models/) preceding it for exact details, but essentially the system behaves with oscillating exponential decay in the form of the equation: `x = Ae^(-αt)•cos(ωt) + B`.
+To learn more about the math, check out the [blogpost](http://khanlou.com/2012/01/cakeyframeanimation-make-it-bounce/) and [the informational post](http://khanlou.com/2012/01/dampers-and-their-role-in-physical-models/) preceding it for exact details, but essentially the system behaves with oscillating exponential decay in the form of the equation: `x = Ae^(-αt)•cos(ωt) + B`.
 
 A is the difference between start and end values, B is the end value, α is determined by the number of frames required to get the exponential decay portion to close enough to 0, and ω is determined by the number of periods required to get the desired number of bounces.
 
@@ -32,7 +32,16 @@ A is the difference between start and end values, B is the end value, α is dete
 
 `shouldOvershoot` is a property that you can change. It defaults to `YES`; if you set it to `NO`, the animation will bounce as if it were hitting a wall, instead of overshooting the target value and bouncing back. It looks a lot like the Anvil effect in Keynote.
 
-`shake` is a property that controls the oscilliation function. Setting it to `YES` lets you shake the element instead of moving it. To use it, set the `fromValue` to the maximum amount you want it to go to and `toValue` to its current location. It uses a sine wave for the oscillation intead of cosine, since it starts at 0 (i.e., the current location.)
+`shake` is a property that controls the oscillation function. Setting it to `YES` lets you shake the element instead of moving it. To use it, set the `fromValue` to the maximum amount you want it to go to and `toValue` to its current location. It uses a sine wave for the oscillation instead of cosine, since it starts at 0 (i.e., the current location.)
+
+`stiffness` is a property that determines how stiff the "spring" component should be. Acceptable values are
+
+* `SKBounceAnimationStiffnessLight`
+* `SKBounceAnimationStiffnessMedium`
+* `SKBounceAnimationStiffnessHeavy`
+
+The default is `SKBounceAnimationStiffnessMedium`.
+
 
 ## Demo app
 
@@ -46,6 +55,6 @@ The demo app contains demos for several different animations that are supported 
 * Scale & Rotate: Using multiple CATransform3Ds on top of each other, we can do super weird effects like scale and rotating. They look really cool.
 * Rect: The last demo creates two `SKBounceAnimations` with two different `keyPath`s (`position` and `bounds`) but attaches them to the same layer. The effect looks like a `frame` animation.
 
-## Future work
+## Other notes
 
-`SKBounceAnimation` doesn’t support the `byValue` property yet. 
+`SKBounceAnimation` doesn’t support the `byValue` property. 
