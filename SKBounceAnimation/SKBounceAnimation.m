@@ -109,7 +109,7 @@
 }
 
 - (void) setNumberOfBounces:(NSUInteger)newNumberOfBounces {
-	[super setValue:[NSNumber numberWithUnsignedInt:newNumberOfBounces] forKey:@"numberOfBouncesKey"];
+	[super setValue:[NSNumber numberWithUnsignedInteger:newNumberOfBounces] forKey:@"numberOfBouncesKey"];
 	[self createValueArray];
 }
 

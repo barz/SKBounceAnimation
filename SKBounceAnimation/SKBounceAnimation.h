@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, SKBounceAnimationStiffness) {
 	SKBounceAnimationStiffnessLight,
 	SKBounceAnimationStiffnessMedium,
 	SKBounceAnimationStiffnessHeavy
-} SKBounceAnimationStiffness;
+};
 
 @interface SKBounceAnimation : CAKeyframeAnimation
 
